@@ -1,14 +1,22 @@
 package com.hojungpark.microservice.controller;
 
-import org.springframework.stereotype.Controller;
+import com.hojungpark.microservice.model.User;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@ResponseBody
+@RestController
 public class HomeController {
     @RequestMapping("/greetings")
-    public String home(){
+    public String sayHello(){
         return "Hello World!";
+    }
+
+    @RequestMapping("/user")
+    public User setUser(){
+        User user = new User();
+        user.setId("1234");
+        user.setName("James");
+        user.setEmail("james@gmail.com");
+        return user;
     }
 }
